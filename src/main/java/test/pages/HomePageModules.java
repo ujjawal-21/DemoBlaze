@@ -11,6 +11,7 @@ public class HomePageModules {
 		PageFactory.initElements(driver, this);
 	}
 	
+	//================Sign Up Module=====================//
 	@FindBy(xpath = "//li//following::a[@id='signin2']")
 	public WebElement btn_signUp;
 	
@@ -20,9 +21,34 @@ public class HomePageModules {
 	@FindBy(id = "sign-password")
 	public WebElement txtBox_password;
 	
-	@FindBy()
+	@FindBy(xpath = "//div[@id='signInModal']//child::button[text()='Close']")
 	public WebElement btn_close;
 	
-	@FindBy()
+	@FindBy(xpath = "//div[@id='signInModal']//child::button[text()='Sign up']")
 	public WebElement btn_register;
+	
+	@FindBy(xpath = "//div[@id='signInModal']//child::span")
+	public WebElement btn_cross;
+	
+	//=====================Login Module================//
+	@FindBy(id = "login2")
+	public WebElement btn_login;
+	
+	@FindBy(xpath = "//div[@id='logInModal']//child::span")
+	public WebElement link_cross;
+	
+	@FindBy(id = "loginusername")
+	public WebElement txtBox_usrnm;
+	
+	@FindBy(id = "loginpassword")
+	public WebElement txtBox_psswrd;
+	
+	@FindBy(xpath = "//div[@id='logInModal']//child::button[text()='Close']")
+	public WebElement btn_dismiss;
+	
+	@FindBy(xpath = "//div[@id='logInModal']//child::button[text()='Log in']")
+	public WebElement btn_signIn;
+	
+	@FindBy(id = "nameofuser")
+	public WebElement txt_user;
 }
