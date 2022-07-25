@@ -45,10 +45,6 @@ LaptopPage laptopPage;
 		jse.executeScript("return document.readyState").toString().equals("complete");
 	}
 	
-	
-
-
-	
 	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Visible");
 	}
