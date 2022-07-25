@@ -18,16 +18,10 @@ LaptopPage laptopPage;
 		case "To Be Clickable":
 			new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(element));
 			break;
-
-		case  "To Alert":
-			new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
+					
+		case "To Be Visible":
+			new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
 			break;
-			
-
-						
-			case "To Be Visible":
-				new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
-				break;
 		}
 
 		
@@ -39,20 +33,6 @@ LaptopPage laptopPage;
 		syncEvents(driver, element, "To Be Clickable");
 		element.click();
 	}
-
-
-	public void HandleAlertEvent(WebDriver driver) {
-		syncEvents(driver, null, "To Alert");
-		driver.switchTo().alert().accept();
-	}
-	
-	
-	
-	public String Alerttext(WebDriver driver) {
-		
-		String text=driver.switchTo().alert().getText();
-		return text;
-	}
 	
 	public void loadPage(WebDriver driver)
 	{
@@ -63,10 +43,6 @@ LaptopPage laptopPage;
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("return document.readyState").toString().equals("complete");
 	}
-	
-	
-
-
 	
 	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Visible");
