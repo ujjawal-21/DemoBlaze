@@ -34,7 +34,7 @@ public class LaptopTest extends Base {
 		
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		List<WebElement> str=laptopPage.getList();
 		//System.out.println(str.toString());
 		for(int i=1;i<str.size();i++)
