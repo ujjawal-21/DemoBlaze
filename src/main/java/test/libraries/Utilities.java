@@ -13,6 +13,10 @@ public class Utilities {
 			case "To Be Clickable":
 				new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(element));
 				break;
+				
+			case "To Be Visible":
+				new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
+				break;
 		}
 		
 	}
@@ -20,5 +24,9 @@ public class Utilities {
 	public void HandleClickEvent(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Clickable");
 		element.click();
+	}
+	
+	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
+		syncEvents(driver, element, "To Be Visible");
 	}
 }
