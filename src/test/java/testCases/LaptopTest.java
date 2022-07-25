@@ -28,7 +28,7 @@ public class LaptopTest extends Base {
 	@Test
 	public void Laptoptest() throws InterruptedException {
 		
-		utils.loadPage(driver);
+		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
 		Thread.sleep(5000);
 		List<WebElement> str=laptopPage.getList();
@@ -42,9 +42,8 @@ public class LaptopTest extends Base {
 			Thread.sleep(2000);
 			laptopPage.btn_addtocart.click();
 			Thread.sleep(2000);
-			String text=utils.Alerttext(driver);
+			String text=utils.HandleAlert(driver);
 			Assert.assertEquals(text, "Product added");
-			utils.HandleAlertEvent(driver);
 			driver.navigate().back();
 			driver.navigate().back();
 			Thread.sleep(5000);
