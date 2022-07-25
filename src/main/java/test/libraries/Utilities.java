@@ -15,6 +15,7 @@ public class Utilities {
 LaptopPage laptopPage;
 	private void syncEvents(WebDriver driver, WebElement element, String string) {
 		switch(string) {
+
 		case "To Be Clickable":
 			new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(element));
 			break;
@@ -23,15 +24,23 @@ LaptopPage laptopPage;
 			new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
 			break;
 			
+
+						
+			case "To Be Visible":
+				new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
+				break;
+		}
+
 		
 		}
 
-	}
+	
 
 	public void HandleClickEvent(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Clickable");
 		element.click();
 	}
+
 
 	public void HandleAlertEvent(WebDriver driver) {
 		syncEvents(driver, null, "To Alert");
@@ -57,4 +66,11 @@ LaptopPage laptopPage;
 	}
 	
 	
+
+
+	
+	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
+		syncEvents(driver, element, "To Be Visible");
+	}
 }
+

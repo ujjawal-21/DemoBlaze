@@ -13,7 +13,7 @@ public class HomePageModules {
 	
 	//================Sign Up Module=====================//
 	@FindBy(xpath = "//li//following::a[@id='signin2']")
-	public WebElement btn_signUp;
+	public WebElement link_signUp;
 	
 	@FindBy(id = "sign-username")
 	public WebElement txtBox_username;
@@ -32,7 +32,7 @@ public class HomePageModules {
 	
 	//=====================Login Module================//
 	@FindBy(id = "login2")
-	public WebElement btn_login;
+	public WebElement link_login;
 	
 	@FindBy(xpath = "//div[@id='logInModal']//child::span")
 	public WebElement link_cross;
@@ -49,6 +49,31 @@ public class HomePageModules {
 	@FindBy(xpath = "//div[@id='logInModal']//child::button[text()='Log in']")
 	public WebElement btn_signIn;
 	
-	@FindBy(id = "nameofuser")
+	@FindBy(xpath = "//div[@id='navbarExample']//child::li//child::a[@id='nameofuser']")
 	public WebElement txt_user;
+	
+	//============Cart============//
+	
+	@FindBy(xpath = "//div[@id='navbarExample']//child::li//child::a[@id='cartur']")
+	public WebElement link_cart;
+	
+	//==============About Us================//
+	
+	@FindBy(xpath = "//div[@id='navbarExample']//child::li//child::a[@data-target='#videoModal']")
+	public WebElement link_aboutUs;
+	
+	@FindBy(xpath = "//button[@title='Play Video']")
+	public WebElement btn_playVid;
+	
+	@FindBy(xpath = "//div[@class='vjs-control-bar']//child::button[@title='Play']//child::span[2]")
+	public WebElement btn_playPause;
+	
+	@FindBy(xpath = "//div[@class='vjs-volume-panel vjs-control vjs-volume-panel-horizontal']//child::button")
+	public WebElement btn_muteUnmute;
+	
+	@FindBy(xpath = "//div[@class='vjs-progress-control vjs-control']//child::div[@role='slider']")
+	public WebElement slider_vidFrame;
+	
+	@FindBy(xpath = "//button[@class='vjs-fullscreen-control vjs-control vjs-button']")
+	public WebElement btn_maxMinScreen;
 }

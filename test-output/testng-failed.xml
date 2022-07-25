@@ -5,6 +5,11 @@
     <classes>
       <class name="testCases.LaptopTest">
         <methods>
+<<<<<<< HEAD
+=======
+          <include name="close"/>
+          <include name="aboutUsTest"/>
+>>>>>>> d71d865651383196b9f721dd9b999caa1b99dd9a
           <include name="initialization"/>
           <include name="Laptoptest"/>
         </methods>
