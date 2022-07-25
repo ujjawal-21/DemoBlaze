@@ -16,11 +16,7 @@ public class Utilities {
 		case "To Be Visible":
 			new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
 			break;
-
-		case "To Alert":
-			new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
-			break;
-
+		
 		case "Alert Is Present":
 			new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
 			break;
