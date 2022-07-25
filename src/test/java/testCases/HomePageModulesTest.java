@@ -1,11 +1,11 @@
 package testCases;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import test.libraries.AppCommonModules;
 import test.libraries.Base;
 import test.libraries.Utilities;
 import test.pages.HomePageModules;
@@ -15,15 +15,17 @@ public class HomePageModulesTest extends Base
 	
 	HomePageModules hm;
 	Utilities utils;
+	AppCommonModules cm;
 	
 	@BeforeMethod
 	public void initialization() {
 		init();
 		hm = new HomePageModules(driver);
 		utils = new Utilities();
+		cm = new AppCommonModules();
 	}
 	
-	@Test(priority = 1, enabled=false)
+	@Test(priority = 6, enabled=false)
     public void RegistrationTest() throws InterruptedException
     {
        utils.HandleClickEvent(driver, hm.link_signUp);
@@ -35,7 +37,7 @@ public class HomePageModulesTest extends Base
        utils.HandleClickEvent(driver, hm.btn_close);
     }
 	
-	@Test(priority = 2, enabled=false)
+	@Test(priority = 7, enabled=false)
 	public void LoginTest() throws InterruptedException {
 		utils.HandleClickEvent(driver, hm.link_login);
 		Thread.sleep(1000);
@@ -51,33 +53,51 @@ public class HomePageModulesTest extends Base
 		Assert.assertEquals(hm.txt_user.getText(), prop.getProperty("user"));
 	}
 	
-	@Test(priority = 3, enabled=false)
+	@Test(priority = 5, enabled=false)
 	public void cartTest() {
 		utils.HandleClickEvent(driver, hm.link_cart);
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("cart.url"));
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 4, enabled=false)
 	public void aboutUsTest() throws InterruptedException {
-		Actions action = new Actions(driver);
 		utils.HandleClickEvent(driver, hm.link_aboutUs);
-		Thread.sleep(2000);
-		action.moveToElement(hm.btn_playVid).click().perform();
-		
-		Thread.sleep(2000);
-		//for(int i=0; i<2; i++)
-	//	action.moveToElement(hm.btn_playPause).click().perform();
-		
-		action.moveToElement(hm.btn_muteUnmute).click().perform();
-			Thread.sleep(2000);
-		action.moveToElement(hm.btn_muteUnmute).click().perform();
-		
-	/*	action.moveToElement(hm.slider_vidFrame, 0, 170).perform();
-		
-		for(int i=0; i<2; i++) {
-			utils.HandleClickEvent(driver, hm.btn_maxMinScreen);
-			Thread.sleep(1000);
-		}*/
+		utils.HandleClickEvent(driver, hm.btn_playVid);
+		utils.HandleClickEvent(driver, hm.btn_cls);
+	}
+	
+	@Test(priority = 3, enabled=false)
+	public void contactTest() {
+		utils.HandleClickEvent(driver, hm.link_contact);
+		utils.HandleClickEvent(driver, hm.link_crossCls);
+		utils.HandleClickEvent(driver, hm.link_contact);
+		utils.HandleClickEvent(driver, hm.btn_contactCls);
+		utils.HandleClickEvent(driver, hm.link_contact);
+		hm.txtBox_contactEmail.sendKeys("Abc");
+		hm.txtBox_contactName.sendKeys("Yuv");
+		hm.txtArea_msg.sendKeys("Testing");
+		hm.btn_sendMsg.click();
+		String msg = utils.HandleAlert(driver);
+		Assert.assertEquals(msg, "Thanks for the message!!");
+	}
+	
+	@Test(priority = 2, enabled=false)
+	public void homeLinkTest() {
+		utils.HandleClickEvent(driver, hm.link_home);
+		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
+	}
+	
+	@Test(priority = 1, enabled=false)
+	public void logoTest() {
+		utils.HandleClickEvent(driver, hm.link_Complogo);
+		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
+	}
+	
+	@Test(priority = 8)
+	public void logOutTest() {
+		cm.Login();
+		utils.HandleClickEvent(driver, hm.link_logOut);
+		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
 	}
 	
 	@AfterMethod

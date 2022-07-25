@@ -6,8 +6,8 @@
       <class name="testCases.HomePageModulesTest">
         <methods>
           <include name="close"/>
-          <include name="aboutUsTest"/>
           <include name="initialization"/>
+          <include name="logOutTest"/>
         </methods>
       </class> <!-- testCases.HomePageModulesTest -->
     </classes>

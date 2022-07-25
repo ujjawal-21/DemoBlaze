@@ -65,15 +65,41 @@ public class HomePageModules {
 	@FindBy(xpath = "//button[@title='Play Video']")
 	public WebElement btn_playVid;
 	
-	@FindBy(xpath = "//div[@class='vjs-control-bar']//child::button[@title='Play']//child::span[2]")
-	public WebElement btn_playPause;
+	@FindBy(xpath = "//div[@id='videoModal']//child::button[text()='Close']")
+	public WebElement btn_cls;
 	
-	@FindBy(xpath = "//div[@class='vjs-volume-panel vjs-control vjs-volume-panel-horizontal']//child::button")
-	public WebElement btn_muteUnmute;
+	//================Contact==============//
+	@FindBy(xpath = "//div[@id='navbarExample']//child::li//child::a[@data-target='#exampleModal']")
+	public WebElement link_contact;
 	
-	@FindBy(xpath = "//div[@class='vjs-progress-control vjs-control']//child::div[@role='slider']")
-	public WebElement slider_vidFrame;
+	@FindBy(id ="recipient-email")
+	public WebElement txtBox_contactEmail;
 	
-	@FindBy(xpath = "//button[@class='vjs-fullscreen-control vjs-control vjs-button']")
-	public WebElement btn_maxMinScreen;
+	@FindBy(id = "recipient-name")
+	public WebElement txtBox_contactName;
+	
+	@FindBy(id = "message-text")
+	public WebElement txtArea_msg;
+	
+	@FindBy(xpath = "//div[@id='exampleModal']//child::button[@class='close']")
+	public WebElement link_crossCls;
+	
+	@FindBy(xpath = "//div[@id='exampleModal']//child::button[text()='Close']")
+	public WebElement btn_contactCls;
+	
+	@FindBy(xpath = "//div[@id='exampleModal']//child::button[text()='Send message']")
+	public WebElement btn_sendMsg;
+	
+	//===============Home==============//
+	@FindBy(xpath = "//div[@id='navbarExample']//child::li//child::a[@href='index.html']")
+	public WebElement link_home;
+	
+	//===============Logo==============//
+	@FindBy(id = "nava")
+	public WebElement link_Complogo;
+	
+	//=============Logout===============//
+	@FindBy(id = "logout2")
+	public WebElement link_logOut;
+	
 }

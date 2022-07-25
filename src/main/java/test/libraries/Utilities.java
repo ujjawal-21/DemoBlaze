@@ -17,6 +17,10 @@ public class Utilities {
 			case "To Be Visible":
 				new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
 				break;
+				
+			case "Alert Is Present":
+				new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
+				break;
 		}
 		
 	}
@@ -28,5 +32,12 @@ public class Utilities {
 	
 	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Visible");
+	}
+	
+	public String HandleAlert(WebDriver driver) {
+		syncEvents(driver, null, "Alert Is Present");
+		String msg = driver.switchTo().alert().getText();
+		driver.switchTo().alert().accept();
+		return msg;
 	}
 }
