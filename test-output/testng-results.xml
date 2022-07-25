@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
+<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-07-25T20:47:14 IST" name="Default suite" finished-at="2022-07-25T20:47:38 IST" duration-ms="23955">
+    <groups>
+    </groups>
+    <test started-at="2022-07-25T20:47:14 IST" name="Default test" finished-at="2022-07-25T20:47:38 IST" duration-ms="23955">
+      <class name="testCases.HomePageModulesTest">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:14 IST" name="initialization" finished-at="2022-07-25T20:47:21 IST" duration-ms="7268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialization -->
+        <test-method signature="nextPrevListTest()[pri:10, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:21 IST" name="nextPrevListTest" finished-at="2022-07-25T20:47:34 IST" duration-ms="12435" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- nextPrevListTest -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:34 IST" name="close" finished-at="2022-07-25T20:47:38 IST" duration-ms="4191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- testCases.HomePageModulesTest -->
+=======
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -76,6 +99,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- close -->
       </class> <!-- testCases.LaptopTest -->
+>>>>>>> 0099bd5e7bf40b37b9c0ad4e14cb84d46b212ce2
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
