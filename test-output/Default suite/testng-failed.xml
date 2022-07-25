@@ -6,8 +6,14 @@
       <class name="testCases.HomePageModulesTest">
         <methods>
           <include name="close"/>
+<<<<<<< HEAD
           <include name="nextPrevListTest"/>
           <include name="initialization"/>
+=======
+          <include name="initialization"/>
+          <include name="laptoptoCart"/>
+          <include name="Laptoptest"/>
+>>>>>>> 0099bd5e7bf40b37b9c0ad4e14cb84d46b212ce2
         </methods>
       </class> <!-- testCases.HomePageModulesTest -->
     </classes>
