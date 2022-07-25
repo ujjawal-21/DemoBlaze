@@ -22,6 +22,10 @@ LaptopPage laptopPage;
 		case "To Be Visible":
 			new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOf(element));
 			break;
+			
+		case "To Alert":
+			new WebDriverWait(driver, 30).until(ExpectedConditions.alertIsPresent());
+			break;
 		}
 
 		
@@ -46,6 +50,22 @@ LaptopPage laptopPage;
 	
 	public void HandleVisibilityOfElements(WebDriver driver, WebElement element) {
 		syncEvents(driver, element, "To Be Visible");
+	}
+
+
+
+	public void HandleAlertEvent(WebDriver driver) {
+		syncEvents(driver, null, "To Alert");
+		driver.switchTo().alert().accept();
+		
+	}
+
+
+
+	public String Alerttext(WebDriver driver) {
+		
+		String text=driver.switchTo().alert().getText();
+		return text;
 	}
 }
 
