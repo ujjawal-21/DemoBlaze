@@ -1,5 +1,6 @@
 package test.libraries;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,5 +38,11 @@ public class Utilities {
 			String msg = driver.switchTo().alert().getText();
 			driver.switchTo().alert().accept();
 			return msg;
+		}
+		
+		public void JSExecutorScrollIntoView(WebDriver driver, WebElement element) {
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			js.executeScript("arguments[0].scrollIntoView(true);", element);
+			js.executeScript("arguments[0].style.border='3px solid red'", element);
 		}
 }
