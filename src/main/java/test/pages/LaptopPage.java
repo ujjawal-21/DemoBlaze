@@ -26,10 +26,7 @@ public class LaptopPage {
 	
 	@FindBy(xpath="//button[@value='9']")
 	public WebElement btn_next;
-	
-	@FindBy(xpath="//div[@class='col-lg-4 col-md-6 mb-4']")
-	public List<WebElement> links_laptops2;
-	
+		
 	@FindBy(xpath="//div[@class='col-sm-12 col-md-6 col-lg-6']/a")
 	public WebElement btn_addtocart;
 	
