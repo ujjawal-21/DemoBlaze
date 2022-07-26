@@ -13,10 +13,9 @@ public class Base
 {
 	public static WebDriver driver;
 	public static Properties prop;
-	
+	public static int tot = 0;
 	public Base() {
 		FileInputStream fin;
-		
 		try {
 			prop = new Properties();
 			fin = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/other/config.properties");

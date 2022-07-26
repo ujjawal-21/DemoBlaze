@@ -57,4 +57,9 @@ public class CartPage {
 	
 	@FindBy(xpath = "//button[text()='OK']")
 	public WebElement btn_ok;
+	
+	//===============Delete==============//
+	
+	@FindBy(xpath = "//tbody[@id='tbodyid']//child::td//child::a[@href='#']")
+	public List<WebElement> link_delete;
 }
