@@ -14,7 +14,7 @@ public class AppCommonModules extends Base{
 	HomePageModules hm;
 	CartPage cartPage;
 	LaptopPage laptopPage;
-	String value;
+	String value[];
 	
 	public void login() {
 		hm = new HomePageModules(driver);
@@ -24,9 +24,21 @@ public class AppCommonModules extends Base{
 		hm.txtBox_usrnm.sendKeys(prop.getProperty("username"));
 		hm.txtBox_psswrd.sendKeys(prop.getProperty("password"));
 		utils.HandleClickEvent(driver, hm.btn_signIn);
+		laptopPage=new LaptopPage(driver);
 	}
 	
-	public String totalCart() throws InterruptedException {
+	public void login1() {
+		hm = new HomePageModules(driver);
+		utils = new Utilities();
+		cartPage=new CartPage(driver);
+		utils.HandleClickEvent(driver, hm.link_login);
+		hm.txtBox_usrnm.sendKeys(prop.getProperty("username1"));
+		hm.txtBox_psswrd.sendKeys(prop.getProperty("password1"));
+		utils.HandleClickEvent(driver, hm.btn_signIn);
+		laptopPage=new LaptopPage(driver);
+	}
+	
+	public String[] totalCart() throws InterruptedException {
 				
 		login();
 		Thread.sleep(2000);
@@ -35,21 +47,24 @@ public class AppCommonModules extends Base{
 		int rows=cartPage.getcartList();
 		for(int i=0;i<rows;i++)
 		{
-			value=driver.findElement(By.xpath("//div[@class='table-responsive']//tbody/tr["+i+"]/td[2]")).getText();
+			value[i]=driver.findElement(By.xpath("//div[@class='table-responsive']//tbody/tr["+i+"]/td[2]")).getText();
 		}
 		return value;
 		
 	}
 	
-	public void DeleteCart() {
+	public void DeleteCart() throws InterruptedException {
 		
 		int rows=cartPage.getcartList();
+		Thread.sleep(2000);
 		List<WebElement> str1=laptopPage.getList();
+		Thread.sleep(2000);
 		for(int j=0;j<rows;j++) {
 			
-			if(str1.get(j).getText()==value) {
+			if((str1.get(j).getText()).equals(value[j])) {
 				
 				cartPage.btn_delete.click();
+				Thread.sleep(5000);
 			}
 		}
 	}
