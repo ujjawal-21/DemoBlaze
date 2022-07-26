@@ -1,6 +1,7 @@
 package testCases;
 
 import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,63 +11,29 @@ import org.testng.annotations.Test;
 import test.libraries.AppCommonModules;
 import test.libraries.Base;
 import test.libraries.Utilities;
-import test.pages.AddToCartPage;
 import test.pages.CartPage;
 import test.pages.HomePageModules;
-import test.pages.LaptopPage;
-import test.pages.MonitorsPage;
+import test.pages.PhonesModule;
 
-public class MonitorTest extends Base {
-
+public class CartPageTest extends Base{
 	Utilities utils;
-	HomePageModules hm;
-	LaptopPage laptopPage;
 	CartPage cp;
-	MonitorsPage monitorsPage;
+	HomePageModules hm;
 	AppCommonModules cm;
-	AddToCartPage cart;
-
+	PhonesModule pm;
+	
 	@BeforeMethod
-	public void initialization() {
+	public void settingUp() {
 		init();
-		hm = new HomePageModules(driver);
 		utils = new Utilities();
-		laptopPage = new LaptopPage(driver);
+		hm = new HomePageModules(driver);
 		cp = new CartPage(driver);
-		monitorsPage=new MonitorsPage(driver);
+		pm = new PhonesModule(driver);
 		cm = new AppCommonModules();
-		cart = new AddToCartPage(driver);
 	}
-
-	@Test
-	public void monitorTest() throws InterruptedException {
-
-		cm.login();
-		Thread.sleep(2000);
-		utils.JSExecutorScrollIntoView(driver, monitorsPage.link_monitors);
-		utils.HandleClickEvent(driver, monitorsPage.link_monitors);
-		Thread.sleep(2000);
-		List <WebElement> list = monitorsPage.links_Totalmonitors;
-		List <WebElement> products = monitorsPage.products;
-		for(int i=0; i<2; i++) {
-			utils.JSExecutorScrollIntoView(driver, products.get(i));
-			utils.HandleClickEvent(driver, list.get(i));
-			utils.HandleClickEvent(driver, cart.btn_addToCart);
-			String msg = utils.HandleAlert(driver);
-			Assert.assertEquals(msg, "Product added.");
-			Thread.sleep(2000);
-			driver.get(prop.getProperty("url"));
-			Thread.sleep(2000);
-			utils.JSExecutorScrollIntoView(driver, monitorsPage.link_monitors);
-			utils.HandleClickEvent(driver, monitorsPage.link_monitors);
-			Thread.sleep(2000);
-		}
-	}
-
-	@Test(dependsOnMethods ="monitorTest")
-
-	public void laptoptoCart() throws InterruptedException
-	{
+	
+	@Test()
+	public void productsPurchaseTest() throws InterruptedException {
 		int rows=0;
 		int sum=0, price=0;
 		cm.login();
@@ -81,7 +48,7 @@ public class MonitorTest extends Base {
 		}
 		String p = cp.txt_totalPrice.getText();
 		price = Integer.parseInt(p);
-		Assert.assertEquals(rows, 2);
+		Assert.assertEquals(rows, 7);
 		Assert.assertEquals(sum, price);
 		
 		utils.HandleClickEvent(driver, cp.btn_placeOrder);
@@ -99,12 +66,9 @@ public class MonitorTest extends Base {
 		Assert.assertEquals(cp.txt_confirmation.getText(), "Thank you for your purchase!");
 		utils.HandleClickEvent(driver, cp.btn_ok);
 	}
-
+	
 	@AfterMethod
 	public void close() {
 		driver.close();
 	}
-
 }
-
-

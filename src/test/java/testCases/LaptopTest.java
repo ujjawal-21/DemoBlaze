@@ -61,10 +61,15 @@ public class LaptopTest extends Base {
 	
 	public void laptoptoCart() throws InterruptedException
 	{
-		Thread.sleep(5000);
+		int rows = 0;
 		hm.link_cart.click();
-        int list=cartPage.getcartList();
-        Assert.assertEquals(6, list);
+		Thread.sleep(5000);
+		List<WebElement> totalProductsAdded = cartPage.totalProductsAdded; 
+		for(WebElement e : totalProductsAdded) {
+			System.out.println(e.getText());
+			rows++;
+		};
+        Assert.assertEquals(6, rows);
 	}
 	
 	@AfterMethod
