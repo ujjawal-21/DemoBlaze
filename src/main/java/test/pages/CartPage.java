@@ -7,12 +7,25 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
-	
+
 	public CartPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
 	//==================Cart================//
+
+
+	@FindBy(xpath="//div[@class='table-responsive']//tbody/tr")
+	public List<WebElement> table_cart;
+
+	public int getcartList() {
+
+		int rows=table_cart.size();
+		return rows;
+
+	}
+	@FindBy(xpath="//div[@class='table-responsive']//tbody/tr/td[4]/a")
+	public WebElement btn_delete;
 
 	@FindBy(xpath="//tbody[@id='tbodyid']//child::td[3]")
 	public List<WebElement> totalProductsAdded;
@@ -57,4 +70,5 @@ public class CartPage {
 	
 	@FindBy(xpath = "//button[text()='OK']")
 	public WebElement btn_ok;
+
 }

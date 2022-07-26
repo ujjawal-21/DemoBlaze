@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import test.libraries.AppCommonModules;
 import test.libraries.Base;
 import test.libraries.Utilities;
@@ -23,6 +22,7 @@ public class MonitorTest extends Base {
 	LaptopPage laptopPage;
 	CartPage cp;
 	MonitorsPage monitorsPage;
+	AppCommonModules appCommonModules;
 	AppCommonModules cm;
 	AddToCartPage cart;
 
@@ -34,14 +34,22 @@ public class MonitorTest extends Base {
 		laptopPage = new LaptopPage(driver);
 		cp = new CartPage(driver);
 		monitorsPage=new MonitorsPage(driver);
+
+		appCommonModules=new AppCommonModules();
+
 		cm = new AppCommonModules();
 		cart = new AddToCartPage(driver);
+
 	}
 
 	@Test
 	public void monitorTest() throws InterruptedException {
 
+
+		appCommonModules.login();
+
 		cm.login();
+
 		Thread.sleep(2000);
 		utils.JSExecutorScrollIntoView(driver, monitorsPage.link_monitors);
 		utils.HandleClickEvent(driver, monitorsPage.link_monitors);
@@ -60,13 +68,32 @@ public class MonitorTest extends Base {
 			utils.JSExecutorScrollIntoView(driver, monitorsPage.link_monitors);
 			utils.HandleClickEvent(driver, monitorsPage.link_monitors);
 			Thread.sleep(2000);
+
+			monitorsPage.btn_cart.click();
+			String text=utils.HandleAlert(driver);
+			Assert.assertEquals(text, "Product added");
+			driver.get(prop.getProperty("url"));
+			utils.HandleClickEvent(driver, monitorsPage.link_monitors);
+			Thread.sleep(2000);	
 		}
+
+		hm.link_cart.click();
+		Thread.sleep(5000);
 	}
 
-	@Test(dependsOnMethods ="monitorTest")
+	@Test(dependsOnMethods ="monitorTest",enabled = false)
 
 	public void laptoptoCart() throws InterruptedException
 	{
+
+		List<WebElement> monitor=monitorsPage.links_Totalmonitors;
+		appCommonModules.login();
+		Thread.sleep(2000);
+		hm.link_cart.click();
+		Thread.sleep(5000);
+		int list=cp.getcartList();
+		Assert.assertEquals(list, monitor.size());
+
 		int rows=0;
 		int sum=0, price=0;
 		cm.login();
@@ -83,7 +110,7 @@ public class MonitorTest extends Base {
 		price = Integer.parseInt(p);
 		Assert.assertEquals(rows, 2);
 		Assert.assertEquals(sum, price);
-		
+
 		utils.HandleClickEvent(driver, cp.btn_placeOrder);
 		utils.HandleClickEvent(driver, cp.link_purchaseCross);
 		utils.HandleClickEvent(driver, cp.btn_placeOrder);
@@ -98,6 +125,7 @@ public class MonitorTest extends Base {
 		utils.HandleClickEvent(driver, cp.btn_purchase);
 		Assert.assertEquals(cp.txt_confirmation.getText(), "Thank you for your purchase!");
 		utils.HandleClickEvent(driver, cp.btn_ok);
+
 	}
 
 	@AfterMethod
