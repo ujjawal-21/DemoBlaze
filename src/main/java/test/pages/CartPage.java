@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 
-
 	public CartPage(WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
@@ -23,5 +22,6 @@ public class CartPage {
 		return rows;
 
 	}
-
+	@FindBy(xpath="//div[@class='table-responsive']//tbody/tr/td[4]/a")
+	public WebElement btn_delete;
 }

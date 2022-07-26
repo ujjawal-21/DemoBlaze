@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import test.libraries.AppCommonModules;
 import test.libraries.Base;
 import test.libraries.Utilities;
 import test.pages.CartPage;
@@ -20,7 +21,7 @@ public class MonitorTest extends Base {
 	LaptopPage laptopPage;
 	CartPage cartPage;
 	MonitorsPage monitorsPage;
-
+	AppCommonModules appCommonModules;
 	@BeforeMethod
 	public void initialization() {
 		init();
@@ -29,11 +30,13 @@ public class MonitorTest extends Base {
 		laptopPage=new LaptopPage(driver);
 		cartPage=new CartPage(driver);
 		monitorsPage=new MonitorsPage(driver);
+		appCommonModules=new AppCommonModules();
 	}
 
 	@Test
 	public void monitorTest() throws InterruptedException {
 
+		appCommonModules.login();
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, monitorsPage.btn_monitors);
 		Thread.sleep(2000);
@@ -48,22 +51,27 @@ public class MonitorTest extends Base {
 			monitorsPage.btn_cart.click();
 			String text=utils.HandleAlert(driver);
 			Assert.assertEquals(text, "Product added");
-			driver.navigate().back();
-			driver.navigate().back();
+			driver.get(prop.getProperty("url"));
 			utils.HandleClickEvent(driver, monitorsPage.btn_monitors);
 			Thread.sleep(2000);	
 		}
 
+		hm.link_cart.click();
+		Thread.sleep(5000);
+
 	}
 
-	@Test(dependsOnMethods ="monitorTest")
+	@Test(dependsOnMethods ="monitorTest",enabled = false)
 
 	public void laptoptoCart() throws InterruptedException
 	{
-		Thread.sleep(5000);
+		List<WebElement> monitor=monitorsPage.listMonitors();
+		appCommonModules.login();
+		Thread.sleep(2000);
 		hm.link_cart.click();
+		Thread.sleep(5000);
 		int list=cartPage.getcartList();
-		Assert.assertEquals(2, list);
+		Assert.assertEquals(list, monitor.size());
 	}
 
 	@AfterMethod
