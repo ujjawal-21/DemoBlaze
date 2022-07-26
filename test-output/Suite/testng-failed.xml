@@ -5,7 +5,7 @@
     <classes>
       <class name="testCases.CartPageTest">
         <methods>
-          <include name="productsPurchaseTest"/>
+          <include name="productDeletionTest"/>
           <include name="settingUp"/>
           <include name="close"/>
         </methods>

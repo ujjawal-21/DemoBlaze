@@ -28,7 +28,7 @@ public class HomePageModulesTest extends Base
 		cm = new AppCommonModules();
 	}
 	
-	@Test(priority = 6, enabled=false)
+	@Test(priority = 6, enabled=true)
     public void RegistrationTest() throws InterruptedException
     {
        utils.HandleClickEvent(driver, hm.link_signUp);
@@ -40,7 +40,7 @@ public class HomePageModulesTest extends Base
        utils.HandleClickEvent(driver, hm.btn_close);
     }
 	
-	@Test(priority = 7, enabled=false)
+	@Test(priority = 7, enabled=true)
 	public void LoginTest() throws InterruptedException {
 		utils.HandleClickEvent(driver, hm.link_login);
 		Thread.sleep(1000);
@@ -56,13 +56,13 @@ public class HomePageModulesTest extends Base
 		Assert.assertEquals(hm.txt_user.getText(), prop.getProperty("user"));
 	}
 	
-	@Test(priority = 5, enabled=false)
+	@Test(priority = 5, enabled=true)
 	public void cartTest() {
 		utils.HandleClickEvent(driver, hm.link_cart);
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("cart.url"));
 	}
 	
-	@Test(priority = 4, enabled=false)
+	@Test(priority = 4, enabled=true)
 	public void aboutUsTest() throws InterruptedException {
 		utils.HandleClickEvent(driver, hm.link_aboutUs);
 		utils.HandleClickEvent(driver, hm.link_AbtCross);
@@ -71,7 +71,7 @@ public class HomePageModulesTest extends Base
 		utils.HandleClickEvent(driver, hm.btn_closeAbtUs);
 	}
 	
-	@Test(priority = 3, enabled=false)
+	@Test(priority = 3, enabled=true)
 	public void contactTest() {
 		utils.HandleClickEvent(driver, hm.link_contact);
 		utils.HandleClickEvent(driver, hm.link_contactCross);
@@ -86,26 +86,26 @@ public class HomePageModulesTest extends Base
 		Assert.assertEquals(msg, "Thanks for the message!!");
 	}
 	
-	@Test(priority = 8, enabled=false)
+	@Test(priority = 8, enabled=true)
 	public void logoutTest() {
 		cm.login();
 		utils.HandleClickEvent(driver, hm.link_logOut);
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
 	}
 	
-	@Test(priority = 2, enabled=false)
+	@Test(priority = 2, enabled=true)
 	public void homeLinkTest() {
 		utils.HandleClickEvent(driver, hm.link_home);
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
 	}
 	
-	@Test(priority = 1, enabled=false)
+	@Test(priority = 1, enabled=true)
 	public void logoTest() {
 		utils.HandleClickEvent(driver, hm.link_logo);
 		Assert.assertEquals(driver.getCurrentUrl(), prop.getProperty("homeLink.url"));
 	}
 	
-	@Test(priority = 9, enabled=false)
+	@Test(priority = 9, enabled=true)
 	public void bannerSlidingTest() throws InterruptedException {
 		
 		List<WebElement> list = hm.TotalBanners;

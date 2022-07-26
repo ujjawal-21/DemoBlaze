@@ -1,14 +1,18 @@
 package test.libraries;
 
+import test.pages.AddToCartPage;
+import test.pages.HomePageModules;
+import test.pages.PhonesModule;
 import org.openqa.selenium.By;
 import test.pages.CartPage;
-import test.pages.HomePageModules;
 import test.pages.LaptopPage;
 
 public class AppCommonModules extends Base{
 
 	Utilities utils;
 	HomePageModules hm;
+	PhonesModule pm;
+	AddToCartPage cart;
 	CartPage cartPage;
 	LaptopPage laptopPage;
 	String value[]=new String[100];
@@ -18,7 +22,9 @@ public class AppCommonModules extends Base{
 		utils = new Utilities();
 		cartPage=new CartPage(driver);
 		utils.HandleClickEvent(driver, hm.link_login);
+		utils.HandleVisibilityOfElements(driver, hm.txtBox_usrnm);
 		hm.txtBox_usrnm.sendKeys(prop.getProperty("username"));
+		utils.HandleVisibilityOfElements(driver, hm.txtBox_psswrd);
 		hm.txtBox_psswrd.sendKeys(prop.getProperty("password"));
 		utils.HandleClickEvent(driver, hm.btn_signIn);
 		laptopPage=new LaptopPage(driver);
@@ -44,7 +50,6 @@ public class AppCommonModules extends Base{
 			value[i-1]=driver.findElement(By.xpath("//div[@class='table-responsive']//tbody/tr["+i+"]/td[2]")).getText();
 		}
 		return value;
-		
 	}
 	
 }

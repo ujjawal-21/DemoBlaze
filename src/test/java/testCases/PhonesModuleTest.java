@@ -41,6 +41,7 @@ public class PhonesModuleTest extends Base{
 		for(int i=0; i<7; i++) {
 			utils.JSExecutorScrollIntoView(driver, products.get(i));
 			utils.HandleClickEvent(driver, list.get(i));
+			tot++;
 			utils.HandleClickEvent(driver, cart.btn_addToCart);
 			String msg = utils.HandleAlert(driver);
 			Assert.assertEquals(msg, "Product added.");

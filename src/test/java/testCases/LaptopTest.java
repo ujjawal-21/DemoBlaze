@@ -86,22 +86,28 @@ public class LaptopTest extends Base {
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
 		Thread.sleep(2000);
-		List<WebElement> str=laptopPage.getList();
+	//	List<WebElement> str=laptopPage.getList();
 		utils.HandleClickEvent(driver, hm.link_cart);
 		Thread.sleep(2000);
 		int rows=cartPage.getcartList();
 		Thread.sleep(2000);
 		value=appCommonModules.totalCart();
-		for(int j=0;j<rows;j++) {
-			
-			String text=str.get(j).getText();
+		List<WebElement> lapNames = laptopPage.txt_lapName;
+		//for(int j=0;j<rows;j++) {
+			for(WebElement e : lapNames) {
+					if(e.getText().equals("Sony vaio i5")) {
+						System.out.println(e.getText());
+					}
+			}
+			/*String text=str.get(j).getText();
 
 			if(text.equals(value[j])) {
 
 				cartPage.btn_delete.click();
 				Thread.sleep(5000);
-			}
-		}
+			}*/
+			
+		//}
 	}
 	@AfterMethod
 	public void close()  {
