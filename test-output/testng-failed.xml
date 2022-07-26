@@ -7,7 +7,7 @@
         <methods>
           <include name="close"/>
           <include name="initialization"/>
-          <include name="Laptoptest"/>
+          <include name="deleteLaptop"/>
         </methods>
       </class> <!-- testCases.LaptopTest -->
     </classes>
