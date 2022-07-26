@@ -42,6 +42,7 @@ public class LaptopTest extends Base {
 			//System.out.println(i);
 			str=laptopPage.getList();
 			utils.HandleVisibilityOfElements(driver, str.get(i-1));
+			utils.JSExecutorScrollIntoView(driver, str.get(i-1));
 			str.get(i-1).click();
 			Thread.sleep(2000);
 			laptopPage.btn_addtocart.click();
