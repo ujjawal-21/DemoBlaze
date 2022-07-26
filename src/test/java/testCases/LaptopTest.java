@@ -60,6 +60,23 @@ public class LaptopTest extends Base {
 
 	}
 
+	
+	@Test(dependsOnMethods ="Laptoptest")
+	
+	public void laptoptoCart() throws InterruptedException
+	{
+		int rows = 0;
+		hm.link_cart.click();
+		Thread.sleep(5000);
+		List<WebElement> totalProductsAdded = cartPage.totalProductsAdded; 
+		for(WebElement e : totalProductsAdded) {
+			System.out.println(e.getText());
+			rows++;
+		};
+        Assert.assertEquals(6, rows);
+	}
+	
+
 	@AfterMethod
 	public void close() throws InterruptedException {
 	
