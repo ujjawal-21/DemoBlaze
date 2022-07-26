@@ -46,7 +46,7 @@ public class MonitorTest extends Base {
 	public void monitorTest() throws InterruptedException {
 
 
-		appCommonModules.login();
+		appCommonModules.login1();
 
 		cm.login();
 
@@ -87,7 +87,7 @@ public class MonitorTest extends Base {
 	{
 
 		List<WebElement> monitor=monitorsPage.links_Totalmonitors;
-		appCommonModules.login();
+		appCommonModules.login1();
 		Thread.sleep(2000);
 		hm.link_cart.click();
 		Thread.sleep(5000);

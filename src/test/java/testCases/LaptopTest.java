@@ -33,8 +33,8 @@ public class LaptopTest extends Base {
 
 	@Test
 	public void Laptoptest() throws InterruptedException {
-		Thread.sleep(2000);
-		appCommonModules.login();
+		
+		appCommonModules.login1();
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
 		Thread.sleep(5000);
@@ -53,16 +53,18 @@ public class LaptopTest extends Base {
 			String text=utils.HandleAlert(driver);
 			Assert.assertEquals(text, "Product added.");
 			driver.get(prop.getProperty("url"));
+			Thread.sleep(5000);
 			utils.HandleClickEvent(driver, laptopPage.btn_laptop);
 			Thread.sleep(2000);	
-			utils.HandleClickEvent(driver, hm.link_cart);
 		}
-
+		utils.HandleClickEvent(driver, hm.link_cart);
+		Thread.sleep(2000);
+		hm.link_logOut.click();
 	}
 
-	
-	@Test(dependsOnMethods ="Laptoptest")
-	
+
+	/*	@Test(dependsOnMethods ="Laptoptest")
+
 	public void laptoptoCart() throws InterruptedException
 	{
 		int rows = 0;
@@ -72,16 +74,16 @@ public class LaptopTest extends Base {
 		for(WebElement e : totalProductsAdded) {
 			System.out.println(e.getText());
 			rows++;
-		};
+		}
         Assert.assertEquals(6, rows);
-	}
-	
+	} */
+
 
 	@AfterMethod
 	public void close() throws InterruptedException {
-	
-		//Thread.sleep(2000);
-		appCommonModules.login();
+
+		Thread.sleep(2000);
+		appCommonModules.login1();
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, hm.link_cart);
 		Thread.sleep(5000);
@@ -91,3 +93,4 @@ public class LaptopTest extends Base {
 	}
 
 }
+
