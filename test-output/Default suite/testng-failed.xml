@@ -3,14 +3,25 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="testCases.CartPageTest">
+=======
+      <class name="testCases.LaptopTest">
+>>>>>>> 6abcab8a8bcea550ed3e22b0d9973484adde9a2e
         <methods>
           <include name="productDeletionTest"/>
           <include name="productsPurchaseTest"/>
           <include name="settingUp"/>
           <include name="close"/>
+<<<<<<< HEAD
         </methods>
       </class> <!-- testCases.CartPageTest -->
+=======
+          <include name="initialization"/>
+          <include name="Laptoptest"/>
+        </methods>
+      </class> <!-- testCases.LaptopTest -->
+>>>>>>> 6abcab8a8bcea550ed3e22b0d9973484adde9a2e
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
