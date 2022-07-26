@@ -30,12 +30,15 @@ public class LaptopPage {
 	@FindBy(xpath="//div[@class='col-sm-12 col-md-6 col-lg-6']/a")
 	public WebElement btn_addtocart;
 	
+	@FindBy(xpath = "//tbody[@id='tbodyid']//child::td[2]")
+	public List<WebElement> txt_lapName;
+	
 	public List<WebElement> getList(){
-		
 		List<WebElement> list=new ArrayList<>();
 		for(WebElement cl:links_laptops)
 		{
 			list.add(cl);
+			System.out.println(list);
 		}
 		return list;
 		

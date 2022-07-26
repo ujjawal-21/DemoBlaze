@@ -20,6 +20,7 @@ public class LaptopTest extends Base {
 	LaptopPage laptopPage;
 	CartPage cartPage;
 	AppCommonModules appCommonModules;
+	String[] value=new String[100];
 
 	@BeforeMethod
 	public void initialization() {
@@ -31,9 +32,9 @@ public class LaptopTest extends Base {
 		appCommonModules=new AppCommonModules();
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void Laptoptest() throws InterruptedException {
-		
+
 		appCommonModules.login1();
 		Thread.sleep(2000);
 		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
@@ -78,17 +79,39 @@ public class LaptopTest extends Base {
         Assert.assertEquals(6, rows);
 	} */
 
+	@Test
+	public void deleteLaptop() throws InterruptedException {
 
-	@AfterMethod
-	public void close() throws InterruptedException {
-
-		Thread.sleep(2000);
 		appCommonModules.login1();
 		Thread.sleep(2000);
-		utils.HandleClickEvent(driver, hm.link_cart);
-		Thread.sleep(5000);
-		appCommonModules.DeleteCart();
+		utils.HandleClickEvent(driver, laptopPage.btn_laptop);
 		Thread.sleep(2000);
+	//	List<WebElement> str=laptopPage.getList();
+		utils.HandleClickEvent(driver, hm.link_cart);
+		Thread.sleep(2000);
+		int rows=cartPage.getcartList();
+		Thread.sleep(2000);
+		value=appCommonModules.totalCart();
+		List<WebElement> lapNames = laptopPage.txt_lapName;
+		//for(int j=0;j<rows;j++) {
+			for(WebElement e : lapNames) {
+					if(e.getText().equals("Sony vaio i5")) {
+						System.out.println(e.getText());
+					}
+			}
+			/*String text=str.get(j).getText();
+
+			if(text.equals(value[j])) {
+
+				cartPage.btn_delete.click();
+				Thread.sleep(5000);
+			}*/
+			
+		//}
+	}
+	@AfterMethod
+	public void close()  {
+
 		driver.quit();
 	}
 
