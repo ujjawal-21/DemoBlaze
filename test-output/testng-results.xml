@@ -1,105 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-25T20:47:14 IST" name="Default suite" finished-at="2022-07-25T20:47:38 IST" duration-ms="23955">
+  <suite started-at="2022-07-26T02:20:20 IST" name="Suite" finished-at="2022-07-26T02:21:38 IST" duration-ms="78254">
     <groups>
     </groups>
-    <test started-at="2022-07-25T20:47:14 IST" name="Default test" finished-at="2022-07-25T20:47:38 IST" duration-ms="23955">
-      <class name="testCases.HomePageModulesTest">
-        <test-method is-config="true" signature="initialization()[pri:0, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:14 IST" name="initialization" finished-at="2022-07-25T20:47:21 IST" duration-ms="7268" status="PASS">
+    <test started-at="2022-07-26T02:20:20 IST" name="Test" finished-at="2022-07-26T02:21:38 IST" duration-ms="78254">
+      <class name="testCases.CartPageTest">
+        <test-method is-config="true" signature="settingUp()[pri:0, instance:testCases.CartPageTest@4bb33f74]" started-at="2022-07-26T02:21:21 IST" name="settingUp" finished-at="2022-07-26T02:21:25 IST" duration-ms="4098" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialization -->
-        <test-method signature="nextPrevListTest()[pri:10, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:21 IST" name="nextPrevListTest" finished-at="2022-07-25T20:47:34 IST" duration-ms="12435" status="PASS">
+        </test-method> <!-- settingUp -->
+        <test-method signature="productsPurchaseTest()[pri:0, instance:testCases.CartPageTest@4bb33f74]" started-at="2022-07-26T02:21:25 IST" name="productsPurchaseTest" finished-at="2022-07-26T02:21:37 IST" duration-ms="12190" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- nextPrevListTest -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.HomePageModulesTest@5ace1ed4]" started-at="2022-07-25T20:47:34 IST" name="close" finished-at="2022-07-25T20:47:38 IST" duration-ms="4191" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testCases.HomePageModulesTest -->
-=======
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
-  <reporter-output>
-  </reporter-output>
-  <suite started-at="2022-07-25T19:30:48 IST" name="Default suite" finished-at="2022-07-25T19:32:38 IST" duration-ms="109539">
-    <groups>
-    </groups>
-    <test started-at="2022-07-25T19:30:48 IST" name="Default test" finished-at="2022-07-25T19:32:38 IST" duration-ms="109539">
-      <class name="testCases.LaptopTest">
-        <test-method is-config="true" signature="initialization()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:30:48 IST" name="initialization" finished-at="2022-07-25T19:31:02 IST" duration-ms="13755" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initialization -->
-        <test-method signature="Laptoptest()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:31:02 IST" name="Laptoptest" finished-at="2022-07-25T19:31:55 IST" duration-ms="52935" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Laptoptest -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:31:55 IST" name="close" finished-at="2022-07-25T19:31:56 IST" duration-ms="1079" status="PASS">
+        </test-method> <!-- productsPurchaseTest -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.CartPageTest@4bb33f74]" started-at="2022-07-26T02:21:37 IST" name="close" finished-at="2022-07-26T02:21:38 IST" duration-ms="517" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="initialization()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:31:57 IST" name="initialization" finished-at="2022-07-25T19:32:11 IST" duration-ms="13956" status="PASS">
+      </class> <!-- testCases.CartPageTest -->
+      <class name="testCases.PhonesModuleTest">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:testCases.PhonesModuleTest@66498326]" started-at="2022-07-26T02:20:20 IST" name="initialization" finished-at="2022-07-26T02:20:25 IST" duration-ms="5369" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method signature="laptoptoCart()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:32:11 IST" name="laptoptoCart" finished-at="2022-07-25T19:32:37 IST" depends-on-methods="testCases.LaptopTest.Laptoptest" duration-ms="26331" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [0] but found [6]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [0] but found [6]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertEqualsImpl(Assert.java:140)
-at org.testng.Assert.assertEquals(Assert.java:122)
-at org.testng.Assert.assertEquals(Assert.java:907)
-at org.testng.Assert.assertEquals(Assert.java:917)
-at testCases.LaptopTest.laptoptoCart(LaptopTest.java:66)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="addingPhonestoCartTest()[pri:0, instance:testCases.PhonesModuleTest@66498326]" started-at="2022-07-26T02:20:25 IST" name="addingPhonestoCartTest" finished-at="2022-07-26T02:21:21 IST" duration-ms="55878" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- laptoptoCart -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.LaptopTest@7671cb68]" started-at="2022-07-25T19:32:37 IST" name="close" finished-at="2022-07-25T19:32:38 IST" duration-ms="1003" status="PASS">
+        </test-method> <!-- addingPhonestoCartTest -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.PhonesModuleTest@66498326]" started-at="2022-07-26T02:21:21 IST" name="close" finished-at="2022-07-26T02:21:21 IST" duration-ms="139" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- testCases.LaptopTest -->
->>>>>>> 0099bd5e7bf40b37b9c0ad4e14cb84d46b212ce2
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- testCases.PhonesModuleTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
