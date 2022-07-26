@@ -31,11 +31,11 @@ public class LaptopPage {
 	public WebElement btn_addtocart;
 	
 	public List<WebElement> getList(){
-		
 		List<WebElement> list=new ArrayList<>();
 		for(WebElement cl:links_laptops)
 		{
 			list.add(cl);
+			System.out.println(list);
 		}
 		return list;
 		
